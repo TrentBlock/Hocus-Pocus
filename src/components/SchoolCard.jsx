@@ -8,7 +8,7 @@ import Button from "./Button";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-function SchoolCard({img, title, delay, type="Course", children}) {
+function SchoolCard({img, title, delay, type="Course", link, children}) {
     const container = useRef();
     useGSAP(
         () => {
@@ -41,7 +41,7 @@ function SchoolCard({img, title, delay, type="Course", children}) {
             <p className="school-card__content__subtitle">{type}</p>
             <h2 className="school-card__content__title">{title}</h2>
             {children}
-            <Button inverted fullWidth/>
+            <Button inverted fullWidth link={link}/>
         </div>
     </section>
     </div>
@@ -52,6 +52,7 @@ SchoolCard.propTypes = {
     title:PropTypes.string,
     delay:PropTypes.number,
     type:PropTypes.string,
+    link:PropTypes.string,
     children:PropTypes.any
 }
 export default SchoolCard
